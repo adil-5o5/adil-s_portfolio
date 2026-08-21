@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Adil A — Flutter Developer building clean, functional mobile experiences with Flutter, Firebase & REST APIs. Based in Chennai, India." />
+  <meta name="keywords" content="Flutter Developer, Mobile App Developer, Dart, Firebase, REST API, Chennai" />
+  <meta property="og:title" content="Adil A — Flutter Developer" />
+  <meta property="og:description"
+    content="Building clean, functional mobile experiences with Flutter, Firebase & REST APIs." />
+  <meta property="og:type" content="website" />
+  <title>Adil A — Flutter Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Back to Top -->
+  <button id="back-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="scrollToSection('hero')">adil.dev</div>
+      <ul class="nav-links" role="list">
+        <li><a href="#about" onclick="scrollToSection('about'); return false;">About</a></li>
+        <li><a href="#skills" onclick="scrollToSection('skills'); return false;">Skills</a></li>
+        <li><a href="#experience" onclick="scrollToSection('experience'); return false;">Experience</a></li>
+        <li><a href="#projects" onclick="scrollToSection('projects'); return false;">Projects</a></li>
+        <li><a href="#contact" class="nav-cta" onclick="scrollToSection('contact'); return false;">Let's Talk</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation">
+    <a href="#about" onclick="closeMobileMenu(); scrollToSection('about'); return false;">About</a>
+    <a href="#skills" onclick="closeMobileMenu(); scrollToSection('skills'); return false;">Skills</a>
+    <a href="#experience" onclick="closeMobileMenu(); scrollToSection('experience'); return false;">Experience</a>
+    <a href="#projects" onclick="closeMobileMenu(); scrollToSection('projects'); return false;">Projects</a>
+    <a href="#contact" onclick="closeMobileMenu(); scrollToSection('contact'); return false;">Contact</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       HERO SECTION
+  ══════════════════════════════════════════════════════ -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <!-- LEFT -->
+        <div class="hero-left">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Software Developer
+          </div>
+          <p class="hero-greeting">Hi there, I'm</p>
+          <h1 class="hero-name">Adil <span class="highlight">A</span></h1>
+          <div class="hero-role-wrapper">
+            <span class="hero-role-label">—</span>
+            <span class="hero-role" id="typewriter-text">Flutter Developer</span><span class="cursor-blink"></span>
+          </div>
+          <p class="hero-desc">
+            Building clean, functional mobile experiences with <strong style="color:var(--text-primary)">Flutter,
+              Firebase &amp; REST APIs</strong>. Passionate about intuitive UX and real-world products.
+          </p>
+          <div class="hero-btns">
+            <a href="#projects" class="btn-primary" onclick="scrollToSection('projects'); return false;"
+              id="view-projects-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+              </svg>
+              View Projects
+            </a>
+            <a href="https://github.com/adil-5o5" target="_blank" rel="noopener noreferrer" class="btn-ghost"
+              id="github-profile-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+              </svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/adil-dev" target="_blank" rel="noopener noreferrer" class="btn-ghost"
+              id="linkedin-profile-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-num">6+</span>
+              <span class="stat-label">Projects Built</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">2+</span>
+              <span class="stat-label">Apps Shipped</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">8.35</span>
+              <span class="stat-label">CGPA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT — Profile Photo -->
+        <div class="hero-right">
+          <div class="hero-photo-wrapper">
+            <div class="hero-photo-glow glow-tl"></div>
+            <div class="hero-photo-glow glow-br"></div>
+            <div class="hero-photo-frame" id="hero-photo-frame">
+              <img src="assets/profile.jpg" alt="Adil A — Flutter Developer"
+                style="width:100%; height:100%; object-fit:cover; object-position: center top;" />
+            </div>
+            <!-- Floating pills -->
+            <div class="float-pill float-pill-1">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg"
+                alt="Flutter" />
+              Flutter
+            </div>
+            <div class="float-pill float-pill-2">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg"
+                alt="Firebase" />
+              Firebase
+            </div>
+            <div class="float-pill float-pill-3">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg" alt="Dart" />
+              Dart
+            </div>
+            <div class="float-pill float-pill-4">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                alt="Python" />
+              Python
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Scroll hint -->
+    <div class="scroll-hint" aria-hidden="true">
+      <div class="scroll-mouse"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SKILLS / TECH STACK
+  ══════════════════════════════════════════════════════ -->
+  <section id="skills" aria-label="Skills and Tech Stack">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Tech Stack</p>
+        <h2 class="section-title">My <span>Arsenal</span></h2>
+      </div>
+      <div class="skills-grid">
+        <!-- Primary -->
+        <div class="skill-card skill-primary reveal reveal-delay-1" aria-label="Flutter">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg"
+            alt="Flutter logo" class="skill-logo" />
+          <span class="skill-name">Flutter</span>
+        </div>
+        <div class="skill-card skill-primary reveal reveal-delay-1" aria-label="Dart">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg" alt="Dart logo"
+            class="skill-logo" />
+          <span class="skill-name">Dart</span>
+        </div>
+        <div class="skill-card skill-primary reveal reveal-delay-2" aria-label="Firebase">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg"
+            alt="Firebase logo" class="skill-logo" />
+          <span class="skill-name">Firebase</span>
+        </div>
+        <!-- REST API — custom SVG -->
+        <div class="skill-card reveal reveal-delay-2" aria-label="REST API">
+          <div class="skill-icon-svg">
+            <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="13" width="40" height="20" rx="10" fill="none" stroke="url(#g1)" stroke-width="2" />
+              <circle cx="13" cy="23" r="4" fill="url(#g1)" />
+              <circle cx="23" cy="23" r="4" fill="url(#g2)" />
+              <circle cx="33" cy="23" r="4" fill="url(#g1)" />
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="46" y2="46">
+                  <stop stop-color="#00f5a0" />
+                  <stop offset="1" stop-color="#00d9f5" />
+                </linearGradient>
+                <linearGradient id="g2" x1="0" y1="0" x2="46" y2="46">
+                  <stop stop-color="#00d9f5" />
+                  <stop offset="1" stop-color="#00f5a0" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="skill-name">REST API</span>
+        </div>
+        <div class="skill-card reveal reveal-delay-2" aria-label="Node.js">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+            alt="Node.js logo" class="skill-logo" />
+          <span class="skill-name">Node.js</span>
+        </div>
+        <div class="skill-card reveal reveal-delay-3" aria-label="JavaScript">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+            alt="JavaScript logo" class="skill-logo" />
+          <span class="skill-name">JavaScript</span>
+        </div>
+        <div class="skill-card reveal reveal-delay-3" aria-label="Python">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+            alt="Python logo" class="skill-logo" />
+          <span class="skill-name">Python</span>
+        </div>
+        <div class="skill-card reveal reveal-delay-3" aria-label="HTML5">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5 logo"
+            class="skill-logo" />
+          <span class="skill-name">HTML</span>
+        </div>
+        <div class="skill-card reveal reveal-delay-4" aria-label="CSS3">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3 logo"
+            class="skill-logo" />
+          <span class="skill-name">CSS</span>
+        </div>
+        <div class="skill-card reveal reveal-delay-4" aria-label="GitHub">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg"
+            alt="GitHub logo" class="skill-logo" style="filter:invert(1) drop-shadow(0 4px 12px rgba(0,0,0,.4));" />
+          <span class="skill-name">GitHub</span>
+        </div>
+        <div class="skill-card reveal reveal-delay-4" aria-label="Figma">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma logo"
+            class="skill-logo" />
+          <span class="skill-name">Figma</span>
+        </div>
+        <!-- Blockchain — custom SVG -->
+        <div class="skill-card reveal reveal-delay-4" aria-label="Blockchain">
+          <div class="skill-icon-svg">
+            <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="7" y="7" width="12" height="12" rx="3" stroke="url(#gb)" stroke-width="2" />
+              <rect x="27" y="7" width="12" height="12" rx="3" stroke="url(#gb)" stroke-width="2" />
+              <rect x="7" y="27" width="12" height="12" rx="3" stroke="url(gb)" stroke-width="2" />
+              <rect x="27" y="27" width="12" height="12" rx="3" stroke="url(#gb)" stroke-width="2" />
+              <line x1="19" y1="13" x2="27" y2="13" stroke="url(#gb)" stroke-width="2" />
+              <line x1="13" y1="19" x2="13" y2="27" stroke="url(#gb)" stroke-width="2" />
+              <line x1="33" y1="19" x2="33" y2="27" stroke="url(#gb)" stroke-width="2" />
+              <line x1="19" y1="33" x2="27" y2="33" stroke="url(#gb)" stroke-width="2" />
+              <defs>
+                <linearGradient id="gb" x1="7" y1="7" x2="39" y2="39">
+                  <stop stop-color="#00f5a0" />
+                  <stop offset="1" stop-color="#00d9f5" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="skill-name">Blockchain</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       EXPERIENCE
+  ══════════════════════════════════════════════════════ -->
+  <section id="experience" aria-label="Work Experience">
+    <div class="container">
+      <div class="exp-header reveal">
+        <p class="section-label">Experience</p>
+        <h2 class="section-title">Where I've <span>Worked</span></h2>
+      </div>
+      <div class="exp-timeline">
+        <div class="exp-item reveal">
+          <div class="exp-dot-col">
+            <div class="exp-dot"></div>
+          </div>
+          <div class="exp-card">
+            <div class="exp-top">
+              <span class="exp-company">Manocore Technologies</span>
+              <span class="exp-period">
+                <span class="exp-period-dot"></span>
+                Oct 2025 – July 2026
+              </span>
+            </div>
+            <p class="exp-role">Software Developer Intern</p>
+            <div class="exp-apps">
+              <!-- Shiftry -->
+              <div class="exp-app reveal reveal-delay-1">
+                <div class="exp-app-icon">📅</div>
+                <div class="exp-app-info">
+                  <div class="exp-app-name">Shiftry</div>
+                  <p class="exp-app-desc">
+                    Developed the Flutter frontend for a workforce scheduling and shift management platform. Built
+                    reusable components for scheduling flows, roster views, and real-time shift updates.
+                  </p>
+                  <div class="store-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.manocoretechnologies.Shiftry&pcampaignid=web_share"
+                      class="store-btn android" id="shiftry-android-btn" target="_blank" rel="noopener noreferrer"
+                      aria-label="Shiftry on Google Play">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M3.18 23.76c.33.18.7.22 1.05.12l.1-.06 10.72-10.73-2.3-2.3-9.57 12.97zm16.48-13.39L16.9 8.63 14.3 11.2l2.6 2.62 2.79-1.74c.8-.5.8-1.22-.03-1.71zM2.1.31C1.75.56 1.5 1 1.5 1.56v20.9c0 .56.25 1 .6 1.25l.08.06L13 12.95v-.25L2.1.31zm11.56 11.38l3.13-3.13-10.72-6.6-.06-.04L13.66 11.7z" />
+                      </svg>
+                      Google Play
+                    </a>
+                    <a href="https://apps.apple.com/in/app/shiftry-smart-shift-planner/id6748926480"
+                      class="store-btn ios" id="shiftry-ios-btn" target="_blank" rel="noopener noreferrer"
+                      aria-label="Shiftry on App Store">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                      </svg>
+                      App Store
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- Meetlo -->
+              <div class="exp-app reveal reveal-delay-2">
+                <div class="exp-app-icon">🤝</div>
+                <div class="exp-app-info">
+                  <div class="exp-app-name">Meetlo</div>
+                  <p class="exp-app-desc">
+                    Built the Flutter-based frontend for a social networking application that helps users discover
+                    nearby people and activities. Focused on smooth location-based UX and intuitive event flows.
+                  </p>
+                  <div class="store-links">
+                    <a href="https://play.google.com/store/search?q=meetlo&c=apps" class="store-btn android"
+                      id="meetlo-android-btn" target="_blank" rel="noopener noreferrer"
+                      aria-label="Meetlo on Google Play">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M3.18 23.76c.33.18.7.22 1.05.12l.1-.06 10.72-10.73-2.3-2.3-9.57 12.97zm16.48-13.39L16.9 8.63 14.3 11.2l2.6 2.62 2.79-1.74c.8-.5.8-1.22-.03-1.71zM2.1.31C1.75.56 1.5 1 1.5 1.56v20.9c0 .56.25 1 .6 1.25l.08.06L13 12.95v-.25L2.1.31zm11.56 11.38l3.13-3.13-10.72-6.6-.06-.04L13.66 11.7z" />
+                      </svg>
+                      Google Play
+                    </a>
+                    <a href="https://apps.apple.com/in/app/meetlo/id6770461499" class="store-btn ios"
+                      id="meetlo-ios-btn" target="_blank" rel="noopener noreferrer" aria-label="Meetlo on App Store">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                      </svg>
+                      App Store
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- end exp-apps -->
+          </div><!-- end exp-card -->
+        </div><!-- end exp-item -->
+      </div><!-- end exp-timeline -->
+
+      <!-- ── Personal Projects Section ── -->
+      <div style="margin-top: 48px;" class="reveal">
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
+          <div style="height:1px; flex:1; background: linear-gradient(to right, var(--border-accent), transparent);">
+          </div>
+          <span
+            style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-1); white-space:nowrap;">Personal
+            Projects</span>
+          <div style="height:1px; flex:1; background: linear-gradient(to left, var(--border-accent), transparent);">
+          </div>
+        </div>
+        <div class="exp-card" style="border-color: rgba(0,217,245,0.18);">
+          <div class="exp-top">
+            <span class="exp-company" style="font-size:19px;">Indie Apps</span>
+            <span class="exp-period"
+              style="border-color:rgba(0,217,245,0.2); background:rgba(0,217,245,0.07); color:var(--accent-2);">
+              <span class="exp-period-dot" style="background:var(--accent-2);"></span>
+              Self-Published
+            </span>
+          </div>
+          <p class="exp-role" style="color:var(--accent-2);">Solo Developer · Designer · Publisher</p>
+          <div class="exp-apps">
+            <!-- 3AM Thoughts -->
+            <div class="exp-app reveal reveal-delay-1" style="border-color:rgba(0,217,245,0.1);">
+              <div class="exp-app-icon" style="background:rgba(0,217,245,0.08); border-color:rgba(0,217,245,0.2);">🌙
+              </div>
+              <div class="exp-app-info">
+                <div class="exp-app-name">3AM Thoughts</div>
+                <p class="exp-app-desc">
+                  A minimal, distraction-free journaling app for capturing late-night ideas, moods, and fleeting
+                  thoughts. Designed, developed, and published solo on the Play Store.
+                </p>
+                <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+                  <span class="tag accent" style="font-size:11px;">Flutter</span>
+                  <span class="tag" style="font-size:11px;">Firebase</span>
+                  <span class="tag" style="font-size:11px;">Solo Project</span>
+                </div>
+                <div class="store-links">
+                  <a href="https://play.google.com/store/apps/details?id=com.welbuilt.thoughts"
+                    class="store-btn android" id="personal-thoughts-android-btn" target="_blank"
+                    rel="noopener noreferrer" aria-label="3AM Thoughts on Google Play">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M3.18 23.76c.33.18.7.22 1.05.12l.1-.06 10.72-10.73-2.3-2.3-9.57 12.97zm16.48-13.39L16.9 8.63 14.3 11.2l2.6 2.62 2.79-1.74c.8-.5.8-1.22-.03-1.71zM2.1.31C1.75.56 1.5 1 1.5 1.56v20.9c0 .56.25 1 .6 1.25l.08.06L13 12.95v-.25L2.1.31zm11.56 11.38l3.13-3.13-10.72-6.6-.06-.04L13.66 11.7z" />
+                    </svg>
+                    Google Play
+                  </a>
+                  <a href="https://github.com/adil-5o5/3amthoughts" class="store-btn" id="personal-thoughts-github-btn"
+                    target="_blank" rel="noopener noreferrer" aria-label="3AM Thoughts GitHub">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- end personal projects -->
+    </div><!-- end container -->
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       PROJECTS
+  ══════════════════════════════════════════════════════ -->
+  <section id="projects" aria-label="Projects">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Selected Works</p>
+        <h2 class="section-title">Things I've <span>Built</span></h2>
+      </div>
+      <div class="projects-grid">
+
+        <!-- 1. Roomie -->
+        <article class="project-card reveal reveal-delay-1" aria-label="Roomie project">
+          <div class="project-top">
+            <div class="project-emoji">🏠</div>
+            <div class="project-links">
+              <a href="https://github.com/adil-5o5/roomie" target="_blank" rel="noopener noreferrer"
+                class="project-link" aria-label="Roomie GitHub repo" id="roomie-github-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-name">Roomie</h3>
+          <p class="project-desc">
+            A real-time collaborative networking app for developers. Create rooms, find teammates, and build together —
+            powered by Firebase live messaging and developer matching.
+          </p>
+          <div class="project-tags">
+            <span class="tag accent">Flutter</span>
+            <span class="tag accent">Firebase</span>
+            <span class="tag">Real-time</span>
+            <span class="tag">Networking</span>
+          </div>
+        </article>
+
+        <!-- 2. Vortex RFP Agent -->
+        <article class="project-card reveal reveal-delay-1" aria-label="Vortex RFP Agent project">
+          <div class="project-top">
+            <div class="project-emoji">🤖</div>
+            <div class="project-links">
+              <a href="https://github.com/adil-5o5/vortex_rfp_agent" target="_blank" rel="noopener noreferrer"
+                class="project-link" aria-label="Vortex RFP Agent GitHub repo" id="rfp-agent-github-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-name">Vortex RFP Agent</h3>
+          <p class="project-desc">
+            AI-powered proposal automation. Uses OCR to extract RFP requirements and agentic LangChain workflows to
+            auto-generate professional proposals — dramatically reducing submission time.
+          </p>
+          <div class="project-tags">
+            <span class="tag accent">Flutter</span>
+            <span class="tag accent">Python</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">OCR</span>
+            <span class="tag">AI</span>
+          </div>
+        </article>
+
+        <!-- 3. 3AM Thoughts -->
+        <article class="project-card reveal reveal-delay-2" aria-label="3AM Thoughts project">
+          <div class="project-top">
+            <div class="project-emoji">🌙</div>
+            <div class="project-links">
+              <a href="https://github.com/adil-5o5/3amthoughts" target="_blank" rel="noopener noreferrer"
+                class="project-link" aria-label="3AM Thoughts GitHub repo" id="thoughts-github-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-name">3AM Thoughts</h3>
+          <p class="project-desc">
+            Your late-night thought companion. A minimal, distraction-free journaling app for capturing fleeting ideas,
+            moods, and thoughts — anytime, anywhere.
+          </p>
+          <div class="project-tags">
+            <span class="tag accent">Flutter</span>
+            <span class="tag">Journaling</span>
+            <span class="tag">Minimal UI</span>
+          </div>
+          <div class="project-store-links">
+            <a href="https://play.google.com/store/apps/details?id=com.welbuilt.thoughts" class="store-btn android"
+              id="thoughts-android-btn" target="_blank" rel="noopener noreferrer"
+              aria-label="3AM Thoughts on Google Play">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M3.18 23.76c.33.18.7.22 1.05.12l.1-.06 10.72-10.73-2.3-2.3-9.57 12.97zm16.48-13.39L16.9 8.63 14.3 11.2l2.6 2.62 2.79-1.74c.8-.5.8-1.22-.03-1.71zM2.1.31C1.75.56 1.5 1 1.5 1.56v20.9c0 .56.25 1 .6 1.25l.08.06L13 12.95v-.25L2.1.31zm11.56 11.38l3.13-3.13-10.72-6.6-.06-.04L13.66 11.7z" />
+              </svg>
+              Android Only
+            </a>
+          </div>
+        </article>
+
+        <!-- 4. Music Player -->
+        <article class="project-card reveal reveal-delay-2" aria-label="Music Player project">
+          <div class="project-top">
+            <div class="project-emoji">🎵</div>
+            <div class="project-links">
+              <a href="https://github.com/adil-5o5/music_player" target="_blank" rel="noopener noreferrer"
+                class="project-link" aria-label="Music Player GitHub repo" id="music-github-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-name">Music Player</h3>
+          <p class="project-desc">
+            A sleek Flutter music player app with beautiful UI, smooth playback controls, playlist management, and an
+            immersive listening experience designed with premium aesthetics.
+          </p>
+          <div class="project-tags">
+            <span class="tag accent">Flutter</span>
+            <span class="tag">Audio</span>
+            <span class="tag">UI/UX</span>
+          </div>
+        </article>
+
+        <!-- 5. Trimly -->
+        <article class="project-card reveal reveal-delay-3" aria-label="Trimly project">
+          <div class="project-top">
+            <div class="project-emoji">✂️</div>
+            <div class="project-links">
+              <a href="https://github.com/adil-5o5/trimly" target="_blank" rel="noopener noreferrer"
+                class="project-link" aria-label="Trimly GitHub repo" id="trimly-github-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-name">Trimly</h3>
+          <p class="project-desc">
+            A smart grooming and salon booking Flutter app — clean interface, effortless appointment scheduling, and a
+            polished experience from browse to booking.
+          </p>
+          <div class="project-tags">
+            <span class="tag accent">Flutter</span>
+            <span class="tag">Booking</span>
+            <span class="tag">Services</span>
+          </div>
+        </article>
+
+        <!-- 6. Mute Zone App -->
+        <article class="project-card reveal reveal-delay-3" aria-label="Mute Zone App project">
+          <div class="project-top">
+            <div class="project-emoji">🔇</div>
+            <div class="project-links">
+              <a href="https://github.com/adil-5o5/mute_zone_app" target="_blank" rel="noopener noreferrer"
+                class="project-link" aria-label="Mute Zone App GitHub repo" id="mute-zone-github-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-name">Mute Zone</h3>
+          <p class="project-desc">
+            Never forget to silence your phone again. Automatically detects when you enter libraries, offices, or
+            meetings and silences your device — using geofencing and REST APIs.
+          </p>
+          <div class="project-tags">
+            <span class="tag accent">Flutter</span>
+            <span class="tag accent">REST API</span>
+            <span class="tag">Geofencing</span>
+            <span class="tag">Automation</span>
+          </div>
+        </article>
+
+      </div><!-- end projects-grid -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       ACHIEVEMENTS
+  ══════════════════════════════════════════════════════ -->
+  <section id="achievements" aria-label="Achievements">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Beyond Code</p>
+        <h2 class="section-title">Achievements &amp; <span>Ventures</span></h2>
+      </div>
+      <div class="achieve-grid">
+        <div class="achieve-card reveal reveal-delay-1">
+          <div class="achieve-icon">💼</div>
+          <h3 class="achieve-title">Freelance Developer</h3>
+          <p class="achieve-desc">
+            Started freelancing in web development — delivering client-ready websites and web apps, managing projects
+            end-to-end from design to deployment.
+          </p>
+        </div>
+        <div class="achieve-card reveal reveal-delay-2">
+          <div class="achieve-icon">👕</div>
+          <h3 class="achieve-title">Vortex Clothing Brand</h3>
+          <p class="achieve-desc">
+            Founded and launched Vortex — a clothing brand built from the ground up. Oversaw branding, product design,
+            and go-to-market strategy as a student entrepreneur.
+          </p>
+        </div>
+        <div class="achieve-card reveal reveal-delay-3">
+          <div class="achieve-icon">🎓</div>
+          <h3 class="achieve-title">B.E. Computer Science</h3>
+          <p class="achieve-desc">
+            Pursuing Bachelor of Engineering in CSE at Prathyusha Engineering College (Class of 2026) with a CGPA of
+            <strong style="color:var(--accent-1)">8.35</strong> — balancing academics with real-world product
+            development.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       CONTACT / FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <section id="contact" aria-label="Contact">
+    <div class="container">
+      <div class="contact-inner reveal">
+        <p class="section-label" style="justify-content:center;">Contact</p>
+        <h2 class="contact-title">Let's Build Something <span>Together</span></h2>
+        <p class="contact-sub">
+          I'm currently open to internship and full-time opportunities. Whether you have a project in mind or just want
+          to say hello — my inbox is always open.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:adil2352005@gmail.com" class="contact-link primary" id="contact-email-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            adil2352005@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/adil-dev" target="_blank" rel="noopener noreferrer" class="contact-link"
+            id="contact-linkedin-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/adil-5o5" target="_blank" rel="noopener noreferrer" class="contact-link"
+            id="contact-github-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+            </svg>
+            GitHub
+          </a>
+          <a href="tel:+919360769576" class="contact-link" id="contact-phone-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+            </svg>
+            +91 93607 69576
+          </a>
+        </div>
+      </div>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 <span>Adil A</span> — Flutter Developer · Chennai, India · <a
+            href="mailto:adil2352005@gmail.com"
+            style="color:var(--accent-1);text-decoration:none;">adil2352005@gmail.com</a></p>
+        <p class="footer-love">Designed &amp; built with <span>♥</span> using Flutter principles</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
